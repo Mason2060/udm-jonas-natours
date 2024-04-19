@@ -7,3 +7,95 @@ Dark green: #28b485
 
 */
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* width height defined will include the padding & border */
+}
+
+html {
+  /* To make 'rem' calc simple we want font-size = 10px*/
+  /* But we shouldnt set it to 10px because that means */
+  /*  that the browser will ignore font-size set by user     */
+  /*   in browsersettings. So we need to set value that   */
+  /*   is a % of the browser's font size. 10px / 16px = 62.5%*/
+  /*   The default is 16px we want 10px so we find the factor*/
+
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+
+  font-size: 1.125rem; /*Use 'rem' so font sizes are relative to the browser user's font size prefrences.*/
+
+  line-height: 1.7; /* Recommended default. 1.7 * the font-size; */
+
+  font-weight: 400; /*values 100, 200 ... 900 where normal===400*/
+
+  color: #666; /* #fff is pure white and #000 is pure black so #888 is in the middle*/
+
+  padding: 30px;
+}
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      /* rgb(126, 213, 111, 0.8), */ rgb(85, 197, 122, 0.7),
+      rgb(40, 180, 133, 0.7)
+    ),
+    url("../img/hero.jpg");
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  position: relative;
+}
+
+/* ------------ */
+/* LOGO */
+/* ------------ */
+
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.logo-image {
+  height: 35px;
+}
+
+/* ------------ */
+/* TEXT TITLE */
+/* ------------ */
+
+.text-box {
+  /* border: 1px solid red; */
+  position: absolute;
+  /* Positioning here is relative to parent element */
+  top: 40%;
+  left: 50%;
+  /* Positioning here is relative to th element itself */
+  transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.heading-primary-main {
+  display: block;
+
+  font-size: 6rem;
+  letter-spacing: 6.8rem;
+}
+
+.heading-primary-sub {
+  display: block;
+
+  font-size: 3.5rem;
+  letter-spacing: 2.5rem;
+}
