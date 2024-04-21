@@ -35,7 +35,7 @@ body {
 
   color: #666; /* #fff is pure white and #000 is pure black so #888 is in the middle*/
 
-  padding: 30px;
+  padding: 3rem;
 }
 
 .header {
@@ -58,12 +58,12 @@ body {
 
 .logo-box {
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 4rem;
+  left: 4rem;
 }
 
 .logo-image {
-  height: 35px;
+  height: 3.5rem;
 }
 
 /* ------------ */
@@ -78,6 +78,7 @@ body {
   left: 50%;
   /* Positioning here is relative to th element itself */
   transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .heading-primary {
@@ -98,4 +99,98 @@ body {
 
   font-size: 3.5rem;
   letter-spacing: 2.5rem;
+  margin-bottom: 6rem;
+}
+
+/* ------------ */
+/* CTA BUTTON   */
+/* ------------ */
+
+.btn:link,
+.btn:visited {
+  font-size: 2.4rem;
+  /* border: none; */
+  cursor: pointer;
+  padding: 1rem 4rem;
+  display: inline-block;
+  border-radius: 20rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  /* When we use "transition: all" then when page refreshes the element */
+  /* will animate, so better to be specific */
+  /* transition: all 0.8s; */
+  transition: transform 800ms;
+  position: relative;
+}
+
+.btn:hover {
+  transform: translateY(-0.4rem);
+}
+
+.btn-white {
+  border: 1px black solid;
+  background-color: #fff;
+  color: #777;
+}
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  /* padding: 6rem 36rem; */
+  /* The ::after pseudo element is treated a s a child of the btn element */
+  /* So using 100% for width & height is 100% of the parent (the btn ) */
+  /* This means that this ::after element is hiding behind the btn */
+  height: 100%;
+  width: 100%;
+  border-radius: 20rem;
+
+  /* Relative to the hosting component : Shifting half the width to the right & half its height up */
+  position: absolute;
+  top: -0;
+  left: 0;
+
+  /* Relative to itself, fine tuning the centering by shifting 
+   itself (this "::after" element half its width to the right & half its height up */
+  /* transform: translate(-50%, -50%); */
+  z-index: -1;
+
+  /* This is the original state of the ::after pseudo class */
+  /* So here we need to put the transition ptroperty for btn:hover::after */
+  transition: all 1000ms;
+}
+
+/* We use this rule because we want the ::after pseudo element to be white */
+/* So the btn has its ::after and the btn--white holds the color */
+.btn-white::after {
+  background-color: #fff;
+}
+
+.btn:hover::after {
+  transform: scale(1.5, 2);
+  /* When we want to fade something out its final state is opacity: 0; */
+  opacity: 0;
+}
+
+@keyframes moveFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* What btn-animated does is make the button appear from the bottom and move up to its restting place */
+.btn-animated {
+  /* animation name, duration, timing-function , delay*/
+  animation: moveFromBottom 700ms ease-out 750ms;
+
+  /* The 'animation-fill-mode' property stes the beggining state of the animated property to have the values of first keyframe 
+  ( in our case 0% ) */
+  /* What this does is prevent the property from appearing on the screen
+     before the animation starts  */
+  animation-fill-mode: backwards;
 }
