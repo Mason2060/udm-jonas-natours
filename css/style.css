@@ -92,6 +92,12 @@ body {
 
   font-size: 6rem;
   letter-spacing: 6.8rem;
+
+  animation: moveFromLeft 1000ms ease-out 400ms;
+  /* This property will hide the backside of the element */
+  /* In some browsers the animation may flcker because the back side is visible */
+  /* I did not see a need for this in chrome but as good practice I use it */
+  backface-visibility: hidden;
 }
 
 .heading-primary-sub {
@@ -100,6 +106,37 @@ body {
   font-size: 3.5rem;
   letter-spacing: 2.5rem;
   margin-bottom: 6rem;
+
+  animation: moveFromRight 1000ms ease-out 400ms;
+  backface-visibility: hidden;
+}
+
+/* --------------  */
+/* TEXT ANIMATION  */
+/* --------------  */
+
+@keyframes moveFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(100rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-100rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 /* ------------ */
@@ -186,7 +223,7 @@ body {
 /* What btn-animated does is make the button appear from the bottom and move up to its restting place */
 .btn-animated {
   /* animation name, duration, timing-function , delay*/
-  animation: moveFromBottom 700ms ease-out 750ms;
+  animation: moveFromBottom 900ms ease-out 1400ms;
 
   /* The 'animation-fill-mode' property stes the beggining state of the animated property to have the values of first keyframe 
   ( in our case 0% ) */
