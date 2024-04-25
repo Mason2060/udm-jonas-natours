@@ -7,10 +7,18 @@ Dark green: #28b485
 
 */
 
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* width height defined will include the padding & border */
+
+  /* By setting to inherit each element will always inherit the box-sizing */
+  /* Since we set the body{} element style to box-sizing: border-box , all 
+    elelments will inherit this value from the body*/
+  /* This is a best practice becaus now 3rd party plugins can set the 
+     box-sizing of body to whatever value and all elements will inherit it.*/
+  box-sizing: inherit;
 }
 
 html {
@@ -36,6 +44,8 @@ body {
   color: #666; /* #fff is pure white and #000 is pure black so #888 is in the middle*/
 
   padding: 3rem;
+
+  box-sizing: border-box; /* width height defined will include the padding & border */
 }
 
 .header {
@@ -56,13 +66,13 @@ body {
 /* LOGO */
 /* ------------ */
 
-.logo-box {
+.header__logo-box {
   position: absolute;
   top: 4rem;
   left: 4rem;
 }
 
-.logo-image {
+.header__logo-image {
   height: 3.5rem;
 }
 
@@ -70,7 +80,7 @@ body {
 /* TEXT TITLE */
 /* ------------ */
 
-.text-box {
+.header__text-box {
   /* border: 1px solid red; */
   position: absolute;
   /* Positioning here is relative to parent element */
@@ -87,7 +97,7 @@ body {
   color: #fff;
 }
 
-.heading-primary-main {
+.heading-primary--main {
   display: block;
 
   font-size: 6rem;
@@ -100,7 +110,7 @@ body {
   backface-visibility: hidden;
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
   display: block;
 
   font-size: 3.5rem;
@@ -164,7 +174,7 @@ body {
   transform: translateY(-0.4rem);
 }
 
-.btn-white {
+.btn--white {
   border: 1px black solid;
   background-color: #fff;
   color: #777;
@@ -198,7 +208,7 @@ body {
 
 /* We use this rule because we want the ::after pseudo element to be white */
 /* So the btn has its ::after and the btn--white holds the color */
-.btn-white::after {
+.btn--white::after {
   background-color: #fff;
 }
 
@@ -221,7 +231,7 @@ body {
 }
 
 /* What btn-animated does is make the button appear from the bottom and move up to its restting place */
-.btn-animated {
+.btn--animated {
   /* animation name, duration, timing-function , delay*/
   animation: moveFromBottom 900ms ease-out 1400ms;
 
