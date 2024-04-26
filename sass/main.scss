@@ -67,65 +67,57 @@ body {
   background-position: top;
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   position: relative;
-}
 
-/* ------------ */
-/* LOGO */
-/* ------------ */
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
 
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem;
-}
+  &__logo-image {
+    height: 3.5rem;
+  }
 
-.header__logo-image {
-  height: 3.5rem;
-}
-
-/* ------------ */
-/* TEXT TITLE */
-/* ------------ */
-
-.header__text-box {
-  /* border: 1px solid red; */
-  position: absolute;
-  /* Positioning here is relative to parent element */
-  top: 40%;
-  left: 50%;
-  /* Positioning here is relative to th element itself */
-  transform: translate(-50%, -50%);
-  text-align: center;
+  &__text-box {
+    /* border: 1px solid red; */
+    position: absolute;
+    /* Positioning here is relative to parent element */
+    top: 40%;
+    left: 50%;
+    /* Positioning here is relative to th element itself */
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
 }
 
 .heading-primary {
   font-weight: 400;
   text-transform: uppercase;
   color: $color-white;
-}
 
-.heading-primary--main {
-  display: block;
+  &--main {
+    display: block;
 
-  font-size: 6rem;
-  letter-spacing: 6.8rem;
+    font-size: 6rem;
+    letter-spacing: 6.8rem;
 
-  animation: moveFromLeft 1000ms ease-out 400ms;
-  /* This property will hide the backside of the element */
-  /* In some browsers the animation may flcker because the back side is visible */
-  /* I did not see a need for this in chrome but as good practice I use it */
-  backface-visibility: hidden;
-}
+    animation: moveFromLeft 1000ms ease-out 400ms;
+    /* This property will hide the backside of the element */
+    /* In some browsers the animation may flcker because the back side is visible */
+    /* I did not see a need for this in chrome but as good practice I use it */
+    backface-visibility: hidden;
+  }
 
-.heading-primary--sub {
-  display: block;
+  &--sub {
+    display: block;
 
-  font-size: 3.5rem;
-  letter-spacing: 2.5rem;
-  margin-bottom: 6rem;
+    font-size: 3.5rem;
+    letter-spacing: 2.5rem;
+    margin-bottom: 6rem;
 
-  animation: moveFromRight 1000ms ease-out 400ms;
-  backface-visibility: hidden;
+    animation: moveFromRight 1000ms ease-out 400ms;
+    backface-visibility: hidden;
+  }
 }
 
 /* --------------  */
@@ -160,75 +152,89 @@ body {
 /* CTA BUTTON   */
 /* ------------ */
 
-.btn:link,
-.btn:visited {
-  font-size: 2.4rem;
-  /* border: none; */
-  cursor: pointer;
-  padding: 1rem 4rem;
-  display: inline-block;
-  border-radius: 20rem;
-  text-decoration: none;
-  text-transform: uppercase;
-  /* When we use "transition: all" then when page refreshes the element */
-  /* will animate, so better to be specific */
-  /* transition: all 0.8s; */
-  transition: transform 800ms;
-  position: relative;
-}
+.btn {
+  &:link,
+  &:visited {
+    font-size: 2.4rem;
+    /* border: none; */
+    // cursor: pointer;
+    padding: 1rem 4rem;
+    display: inline-block;
+    border-radius: 20rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    /* When we use "transition: all" then when page refreshes the element */
+    /* will animate, so better to be specific */
+    /* transition: all 0.8s; */
+    transition: transform 800ms;
+    position: relative;
+  }
 
-.btn:hover {
-  transform: translateY(-0.4rem);
-  box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
-}
+  &:hover {
+    transform: translateY(-0.4rem);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
 
-.btn:active {
-  transform: translateY(-0.1rem);
-  box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
-}
+    &::after {
+      transform: scale(1.5, 2);
+      /* When we want to fade something out its final state is opacity: 0; */
+      opacity: 0;
+    }
+  }
 
-.btn--white {
-  border: 1px $color-black solid;
-  background-color: $color-white;
-  color: $color-gray-dark;
-}
+  &:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
 
-.btn::after {
-  content: "";
-  display: inline-block;
-  /* padding: 6rem 36rem; */
-  /* The ::after pseudo element is treated a s a child of the btn element */
-  /* So using 100% for width & height is 100% of the parent (the btn ) */
-  /* This means that this ::after element is hiding behind the btn */
-  height: 100%;
-  width: 100%;
-  border-radius: 20rem;
+  &--white {
+    border: 1px $color-black solid;
+    background-color: $color-white;
+    color: $color-gray-dark;
 
-  /* Relative to the hosting component : Shifting half the width to the right & half its height up */
-  position: absolute;
-  top: -0;
-  left: 0;
+    /* We use this rule because we want the ::after pseudo element to be white */
+    /* So the btn has its ::after and the btn--white holds the color */
+    &::after {
+      background-color: $color-white;
+    }
+  }
 
-  /* Relative to itself, fine tuning the centering by shifting 
+  &::after {
+    content: "";
+    display: inline-block;
+    /* padding: 6rem 36rem; */
+    /* The ::after pseudo element is treated a s a child of the btn element */
+    /* So using 100% for width & height is 100% of the parent (the btn ) */
+    /* This means that this ::after element is hiding behind the btn */
+    height: 100%;
+    width: 100%;
+    border-radius: 20rem;
+
+    /* Relative to the hosting component : Shifting half the width to the right & half its height up */
+    position: absolute;
+    top: -0;
+    left: 0;
+
+    /* Relative to itself, fine tuning the centering by shifting 
    itself (this "::after" element half its width to the right & half its height up */
-  /* transform: translate(-50%, -50%); */
-  z-index: -1;
+    /* transform: translate(-50%, -50%); */
+    z-index: -1;
 
-  /* This is the original state of the ::after pseudo class */
-  /* So here we need to put the transition ptroperty for btn:hover::after */
-  transition: all 1000ms;
+    /* This is the original state of the ::after pseudo class */
+    /* So here we need to put the transition ptroperty for btn:hover::after */
+    transition: all 1000ms;
+  }
 }
 
-/* We use this rule because we want the ::after pseudo element to be white */
-/* So the btn has its ::after and the btn--white holds the color */
-.btn--white::after {
-  background-color: $color-white;
-}
+/* What btn-animated does is make the button appear from the bottom and move up to its restting place */
+&--animated {
+  /* animation name, duration, timing-function , delay*/
+  animation: moveFromBottom 900ms ease-out 1400ms;
 
-.btn:hover::after {
-  transform: scale(1.5, 2);
-  /* When we want to fade something out its final state is opacity: 0; */
-  opacity: 0;
+  /* The 'animation-fill-mode' property stes the beggining state of the animated property to have the values of first keyframe 
+  ( in our case 0% ) */
+  /* What this does is prevent the property from appearing on the screen
+     before the animation starts  */
+  animation-fill-mode: backwards;
 }
 
 @keyframes moveFromBottom {
@@ -241,16 +247,4 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-/* What btn-animated does is make the button appear from the bottom and move up to its restting place */
-.btn--animated {
-  /* animation name, duration, timing-function , delay*/
-  animation: moveFromBottom 900ms ease-out 1400ms;
-
-  /* The 'animation-fill-mode' property stes the beggining state of the animated property to have the values of first keyframe 
-  ( in our case 0% ) */
-  /* What this does is prevent the property from appearing on the screen
-     before the animation starts  */
-  animation-fill-mode: backwards;
 }
