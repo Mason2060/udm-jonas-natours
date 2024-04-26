@@ -1,0 +1,14 @@
+{
+  "name": "udm-jonas-natours",
+  "version": "1.0.0",
+  "description": "** This is a CSS-SaaS HTML project from Udemy **\r ** Jonass Schmidt 'Advanced CSS and SaaS' **",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass ./sass/main.scss ./css/style.css -w"
+  },
+  "author": "Yariv",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^9.0.0"
+  }
+}
