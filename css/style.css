@@ -28,6 +28,37 @@ html {
   font-size: 62.5%; }
 
 body {
+  box-sizing: border-box;
+  /* width height defined will include the padding & border */ }
+
+/* --------------  */
+/* ANIMATION  */
+/* --------------  */
+@keyframes moveFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(100rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes moveFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-100rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes moveFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+
+body {
   font-family: "Lato", sans-serif;
   font-size: 1.125rem;
   /*Use 'rem' so font sizes are relative to the browser user's font size prefrences.*/
@@ -37,41 +68,7 @@ body {
   /*values 100, 200 ... 900 where normal===400*/
   color: #777;
   /* $color-white is pure white and #000 is pure black so #888 is in the middle*/
-  padding: 3rem;
-  box-sizing: border-box;
-  /* width height defined will include the padding & border */ }
-
-.header {
-  height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.7), rgba(40, 180, 133, 0.7)), url("../img/hero.jpg");
-  background-size: cover;
-  background-position: top;
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  position: relative; }
-
-/* ------------ */
-/* LOGO */
-/* ------------ */
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem; }
-
-.header__logo-image {
-  height: 3.5rem; }
-
-/* ------------ */
-/* TEXT TITLE */
-/* ------------ */
-.header__text-box {
-  /* border: 1px solid red; */
-  position: absolute;
-  /* Positioning here is relative to parent element */
-  top: 40%;
-  left: 50%;
-  /* Positioning here is relative to th element itself */
-  transform: translate(-50%, -50%);
-  text-align: center; }
+  padding: 3rem; }
 
 .heading-primary {
   font-weight: 400;
@@ -95,25 +92,6 @@ body {
   margin-bottom: 6rem;
   animation: moveFromRight 1000ms ease-out 400ms;
   backface-visibility: hidden; }
-
-/* --------------  */
-/* TEXT ANIMATION  */
-/* --------------  */
-@keyframes moveFromLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(100rem); }
-  100% {
-    opacity: 1;
-    transform: translateX(0); } }
-
-@keyframes moveFromRight {
-  0% {
-    opacity: 0;
-    transform: translateX(-100rem); }
-  100% {
-    opacity: 1;
-    transform: translateX(0); } }
 
 /* ------------ */
 /* CTA BUTTON   */
@@ -179,14 +157,6 @@ body {
   /* When we want to fade something out its final state is opacity: 0; */
   opacity: 0; }
 
-@keyframes moveFromBottom {
-  0% {
-    opacity: 0;
-    transform: translateY(3rem); }
-  100% {
-    opacity: 1;
-    transform: translateY(0); } }
-
 /* What btn-animated does is make the button appear from the bottom and move up to its restting place */
 .btn--animated {
   /* animation name, duration, timing-function , delay*/
@@ -196,3 +166,26 @@ body {
   /* What this does is prevent the property from appearing on the screen
      before the animation starts  */
   animation-fill-mode: backwards; }
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.7), rgba(40, 180, 133, 0.7)), url("../img/hero.jpg");
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  position: relative; }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo-image {
+    height: 3.5rem; }
+  .header__text-box {
+    /* border: 1px solid red; */
+    position: absolute;
+    /* Positioning here is relative to parent element */
+    top: 40%;
+    left: 50%;
+    /* Positioning here is relative to th element itself */
+    transform: translate(-50%, -50%);
+    text-align: center; }
