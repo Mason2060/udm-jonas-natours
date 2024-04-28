@@ -3,3 +3,15 @@
   padding: 25rem 0;
   margin-top: -20vh;
 }
+
+.section-about__col-start {
+  // border: 2px solid blue;
+  width: 80%;
+  margin: 0 auto;
+  grid-column-start: 1;
+}
+
+.section-about__col-end {
+  // border: 2px solid green;
+  grid-column-end: -1;
+}

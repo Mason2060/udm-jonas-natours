@@ -4,7 +4,7 @@
 
 .btn:link,
 .btn:visited {
-  font-size: 2.4rem;
+  font-size: $font-size-default;
   /* border: none; */
   cursor: pointer;
   padding: 1rem 4rem;
@@ -83,4 +83,40 @@
   /* What this does is prevent the property from appearing on the screen
      before the animation starts  */
   animation-fill-mode: backwards;
+}
+
+.btn-text {
+  font-size: $font-size-default;
+  font-weight: 500;
+
+  &:link,
+  &:visited {
+    color: $color-primary-dark;
+
+    // We need to add the inline-block value because we are
+    //styling an <a> anchor.
+    // Since browsers give anchors a default display: inline then
+    // properties such as width, height, vertical padding.
+    // Since there is no vertical height for an inline style the
+    // transform: translateY(-5px); has no refrence and is ignored.
+    // So declaring the display as inline-block solves the problem
+    // the style now has hright so now the translateY will work.
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid $color-primary-dark;
+    padding: 3px 6px;
+    transition: all 400ms;
+  }
+
+  &:hover {
+    background-color: $color-primary-dark;
+    color: $color-white;
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+  }
+
+  &:active {
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+    transform: translateY(0);
+  }
 }

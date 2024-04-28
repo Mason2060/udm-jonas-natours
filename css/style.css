@@ -1,11 +1,3 @@
-/*
-COLORS:
-
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-
-*/
 *,
 *::after,
 *::before {
@@ -29,7 +21,8 @@ html {
 
 body {
   box-sizing: border-box;
-  /* width height defined will include the padding & border */ }
+  /* width height defined will include the padding & border */
+  border: none; }
 
 /* --------------  */
 /* ANIMATION  */
@@ -80,7 +73,7 @@ body {
   font-size: 6rem;
   letter-spacing: 6.8rem;
   animation: moveFromLeft 1000ms ease-out 400ms;
-  /* This property will hide the backside of the element */
+  /* The 'backface-visibility' property will hide the backside of the element */
   /* In some browsers the animation may flcker because the back side is visible */
   /* I did not see a need for this in chrome but as good practice I use it */
   backface-visibility: hidden; }
@@ -97,20 +90,41 @@ body {
   text-transform: uppercase;
   font-size: 3.5rem;
   font-weight: 700;
+  letter-spacing: 0.8rem;
   background-image: linear-gradient(to right, #7ed56f, #28b485);
-  display: inline-block;
-  color: transparent;
   background-clip: text;
+  color: transparent;
+  display: inline-block;
   transition: all 0.2s; }
   .heading-secondary:hover {
     transform: skewX(3deg) skewY(5deg) scale(1.1);
     text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); }
 
+.heading-tertiary {
+  text-transform: uppercase;
+  font-size: 2.4rem;
+  font-weight: 700; }
+
+.paragraph {
+  font-size: 2rem;
+  font-weight: 400; }
+  .paragraph:not(:last-child) {
+    margin-bottom: 5rem; }
+
 .u-center-text {
   text-align: center; }
 
-.u-margin-bottom-8 {
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem; }
+
+.u-margin-bottom-medium {
+  margin-bottom: 4rem; }
+
+.u-margin-bottom-big {
   margin-bottom: 8rem; }
+
+.u-container-center {
+  margin: 0 20rem; }
 
 /* ------------ */
 /* CTA BUTTON   */
@@ -186,6 +200,29 @@ body {
      before the animation starts  */
   animation-fill-mode: backwards; }
 
+.btn-text {
+  font-size: 2.4rem;
+  font-weight: 500; }
+  .btn-text:link, .btn-text:visited {
+    color: #28b485;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid #28b485;
+    padding: 3px 6px;
+    transition: all 400ms; }
+  .btn-text:hover {
+    background-color: #28b485;
+    color: #fff;
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15); }
+  .btn-text:active {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    transform: translateY(0); }
+
+.grid-2-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr; }
+
 .header {
   height: 95vh;
   background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.7), rgba(40, 180, 133, 0.7)), url("../img/hero.jpg");
@@ -213,3 +250,11 @@ body {
   background-color: #f7f7f7;
   padding: 25rem 0;
   margin-top: -20vh; }
+
+.section-about__col-start {
+  width: 80%;
+  margin: 0 auto;
+  grid-column-start: 1; }
+
+.section-about__col-end {
+  grid-column-end: -1; }

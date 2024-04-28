@@ -25,7 +25,8 @@ body {
   letter-spacing: 6.8rem;
 
   animation: moveFromLeft 1000ms ease-out 400ms;
-  /* This property will hide the backside of the element */
+
+  /* The 'backface-visibility' property will hide the backside of the element */
   /* In some browsers the animation may flcker because the back side is visible */
   /* I did not see a need for this in chrome but as good practice I use it */
   backface-visibility: hidden;
@@ -46,6 +47,7 @@ body {
   text-transform: uppercase;
   font-size: 3.5rem;
   font-weight: 700;
+  letter-spacing: 0.8rem;
   //---------------------------------------
   // Start of rules for cliping text so that
   // it is filled with background-image
@@ -65,5 +67,20 @@ body {
   &:hover {
     transform: skewX(3deg) skewY(5deg) scale(1.1);
     text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
+  }
+}
+
+.heading-tertiary {
+  text-transform: uppercase;
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.paragraph {
+  font-size: 2rem;
+  font-weight: 400;
+
+  &:not(:last-child) {
+    margin-bottom: 5rem;
   }
 }
