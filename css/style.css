@@ -246,6 +246,29 @@ body {
   .composition:hover .composition__photo:not(:hover) {
     transform: scale(0.95); }
 
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid #777;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 32rem;
+  padding: 2rem;
+  transition: transform 300ms; }
+  .feature-card__icon {
+    font-size: 6rem;
+    background-image: linear-gradient(to right, #7ed56f, #28b485);
+    background-clip: text;
+    color: transparent; }
+  .feature-card__text {
+    font-size: 1.8rem;
+    text-align: center; }
+  .feature-card:hover {
+    transform: translateY(-1.5rem) scale(1.03); }
+
 .grid-2-columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -278,12 +301,25 @@ body {
   background-color: #f7f7f7;
   padding: 25rem 0;
   margin-top: -20vh; }
+  .section-about__col-start {
+    width: 100%;
+    padding: 0 5%;
+    grid-column-start: 1; }
+  .section-about__col-end {
+    width: 100%;
+    grid-column-end: -1; }
 
-.section-about__col-start {
-  width: 100%;
-  padding: 0 5%;
-  grid-column-start: 1; }
-
-.section-about__col-end {
-  width: 100%;
-  grid-column-end: -1; }
+.section-features {
+  margin-top: -12rem;
+  padding: 20rem 0;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.7), rgba(40, 180, 133, 0.7)), url("../../img/nat-4.jpg");
+  background-size: cover;
+  transform: skewY(-7deg); }
+  .section-features__card-container {
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 5rem; }
+  .section-features > * {
+    transform: skewY(7deg); }
