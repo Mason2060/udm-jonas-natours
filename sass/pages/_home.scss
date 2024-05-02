@@ -55,3 +55,21 @@
     transform: skewY(7deg);
   }
 }
+
+.section-tours {
+  border: 1px solid red;
+  background-color: $color-grey-light-1;
+
+  margin-top: -18rem;
+  padding: 35em 0 50rem 0;
+
+  &__card-container {
+    border: 6px solid green;
+    // height: 701rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    // align-content: center;
+    justify-items: center;
+    // column-gap: 10rem;
+  }
+}
