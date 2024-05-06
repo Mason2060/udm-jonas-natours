@@ -64,8 +64,9 @@
   padding: 35em 0 50rem 0;
 
   &__card-container {
-    border: 6px solid green;
+    // border: 6px solid green;
     // height: 701rem;
+    margin: 0 10%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     // align-content: center;
