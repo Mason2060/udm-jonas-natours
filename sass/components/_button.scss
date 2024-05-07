@@ -30,9 +30,15 @@
 }
 
 .btn--white {
-  border: 1px $color-black solid;
+  // border: 1px $color-black solid;
   background-color: $color-white;
   color: $color-gray-dark;
+}
+
+.btn--green {
+  // border: 1px $color-black solid;
+  background-color: $color-primary;
+  color: $color-white;
 }
 
 .btn::after {
