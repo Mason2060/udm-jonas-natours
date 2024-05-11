@@ -73,3 +73,21 @@
     // column-gap: 10rem;
   }
 }
+
+.section-stories {
+  background-color: $color-grey-light-1;
+
+  margin-top: -18rem;
+  padding: 35em 0 15rem 0;
+
+  &__row {
+    border: 6px solid green;
+    // height: 701rem;
+    margin: 0 10%;
+    display: grid;
+    grid-template-columns: 1fr;
+    // align-content: center;
+    justify-items: center;
+    // column-gap: 10rem;
+  }
+}
