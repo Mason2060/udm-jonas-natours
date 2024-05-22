@@ -132,6 +132,19 @@ body {
 .u-container-center {
   margin: 0 20rem; }
 
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.3; }
+  .bg-video__content {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; }
+
 /* ------------ */
 /* CTA BUTTON   */
 /* ------------ */
@@ -371,7 +384,7 @@ body {
 
 .story {
   width: 75%;
-  margin: 10rem auto;
+  margin: 5rem auto;
   box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
   background-color: #fff;
   border-radius: 3px;
@@ -482,11 +495,11 @@ body {
     justify-items: center; }
 
 .section-stories {
-  background-color: #f7f7f7;
-  margin-top: -18rem;
-  padding: 35rem 0 15rem 0; }
+  border: 3px solid #c07411;
+  padding-bottom: 15rem;
+  padding: 0 0 0 0;
+  position: relative; }
   .section-stories__row {
-    margin: 0 10%;
     display: grid;
     grid-template-columns: 1fr;
     justify-items: center; }
