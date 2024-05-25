@@ -74,7 +74,7 @@
 }
 
 .section-stories {
-  border: 3px solid rgb(192, 116, 17);
+  // border: 3px solid rgb(192, 116, 17);
   // background-color: $color-grey-light-1;
 
   // margin-top: 18rem;
@@ -95,5 +95,51 @@
     // align-content: center;
     justify-items: center;
     // column-gap: 10rem;
+  }
+}
+
+.section-booking {
+  // border: 3px solid rgb(187, 131, 58);
+
+  // margin-top: 18rem;
+  padding-bottom: 15rem;
+  height: 80rem;
+
+  &__row {
+    background-image: linear-gradient(
+      to right bottom,
+      $color-primary-light,
+      $color-primary-dark
+    );
+    padding: 15rem 15rem;
+    // border: 3px solid green;
+    // height: 70rem;
+    // margin: 0 10%;
+    display: grid;
+    grid-template-columns: 1fr;
+    // align-content: center;
+    justify-items: center;
+    // column-gap: 10rem;
+  }
+
+  &__book {
+    display: inline-block;
+    background-image: linear-gradient(
+        105deg,
+        rgba($color-white, 0.8) 0 50%,
+        transparent 50% 100%
+      ),
+      url(../img/nat-10.jpg);
+    background-size: cover;
+    height: 70rem;
+    width: 100%;
+
+    border-radius: $shape-border-radius;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
+
+    &__form-container {
+      width: 50%;
+      padding: 6rem;
+    }
   }
 }
