@@ -373,6 +373,37 @@
                     >Email address</label
                   >
                 </div>
+
+                <!-- A form group to containerize the Radio buttona -->
+                <div class="form__group">
+                  <!-- Radio button 1 -->
+                  <div class="form__radio-group">
+                    <input
+                      type="radio"
+                      name="size-pick"
+                      id="option-small"
+                      class="form__radio-input" />
+                    <label for="option-small" class="form__radio-label">
+                      <!--  In CSS we cannot style the radio buttons -->
+                      <!--  So the way around that is to use <span> element -->
+                      <!--  inisde the label and then hide the <input> -->
+                      <span class="form__radio-button"></span> Small tour
+                      group</label
+                    >
+                  </div>
+
+                  <!-- Radio button 2 -->
+                  <div class="form__radio-group">
+                    <input
+                      type="radio"
+                      name="size-pick"
+                      id="option-large"
+                      class="form__radio-input" />
+                    <label for="option-large" class="form__radio-label"
+                      >Large tour group</label
+                    >
+                  </div>
+                </div>
               </form>
             </div>
           </div>

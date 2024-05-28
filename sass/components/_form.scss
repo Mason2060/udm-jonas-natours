@@ -1,0 +1,105 @@
+.form {
+  color: inherit;
+
+  &__group:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  &__input {
+    // The input element does not inherit font props
+    // So it doesnt inherit color, font family, size etc..
+    color: inherit;
+    font-family: inherit;
+    font-size: 1.5rem;
+    padding: 1.5rem 2rem;
+    border-radius: 2px;
+    background-color: rgba($color-white, 0.5);
+    border: none;
+
+    // We use display: transparent to componsate for
+    // the border-bottom of the focused feild.
+    // Unless both feilds have a border-bottom of same width
+    // then the feilds will twitch when focus changes.
+    border-bottom: 3px solid transparent;
+
+    // We use display: block so that the
+    // input feild id in its own line
+    display: block;
+    width: 80%;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+      border-bottom: 3px solid $color-primary;
+    }
+
+    // Only when the input feild is in
+    // focus AND invalid then use this style rule
+    &:focus:invalid {
+      border-bottom: 3px solid $color-secondary-dark;
+    }
+
+    // The '::' double colons represent a psedu element
+    // The pseudo-elemnts are things that are displayed on the page
+    // as opposd to pseudo-classe (':' singlr colon) which
+    // represent things like state (e.g. focus).
+    //
+    // Here we define a rule to style the placeholder
+    // inside the input feild.
+    // We want the placeholder text to be bold when in focus
+    // and gray when not in focus.
+    &::-webkit-input-placeholder {
+      color: $color-grey-dark-2;
+    }
+  }
+
+  &__label {
+    // If we dont use display:block then
+    // the margin, padding etc will have no effect.
+    // They only work on block elements.
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-right: 0.7rem;
+    transition: all 0.3s;
+  }
+
+  // Here we make the effect where when we type into an input feild
+  // the placeholder text seems to fly out of the field and land
+  // as a label outside the field under the location it was before.
+
+  // This is done by creating an animation as follows :
+  // (1) When the placeholder is shown we hide the label.
+  //
+  // (2) When user starts typeing in field then placeholder is not shown.
+
+  // We use the sibling selector (sibling selectors are '+' , '~').
+  // We use the 'adjecent sibling selector' which is '+'.
+  //  It selects the immediate sibling after the current sibling.
+  //  Since the <input> element is the current then the next
+  //  sibling in the html is <label> so we use '+'.
+
+  // In case there were other elements between the current <input>
+  // element and our target <label> then we would have used
+  // the '~' general-sibling selector.
+
+  // The 'placeholder-shown' pseudo class applies styles only
+  // when the input element is displaying its placeholder text.
+  &__input:placeholder-shown + &__label {
+    //     How to hide the label:
+    //         (a) set visibility to hidden (this will make the label REALY gone)
+    //         (b) But we cannot animate the visibility property. We need
+    //             an opacity property to make the element animatable.
+    //             So we set opacity to 0.
+
+    visibility: hidden;
+    opacity: 0;
+
+    // To animate as to the placeholder drops down to become a label
+    // we place the hidden label above it's end position, aproximitly
+    // where the input field placeholder value is displayed.
+    //
+    transform: translateY(-4rem);
+  }
+}
