@@ -2,33 +2,42 @@
 /* CTA BUTTON   */
 /* ------------ */
 
-.btn:link,
-.btn:visited {
-  font-size: $font-size-default;
-  /* border: none; */
-  cursor: pointer;
-  padding: 1rem 4rem;
-  display: inline-block;
-  border-radius: 20rem;
-  text-decoration: none;
-  text-transform: uppercase;
-  /* When we use "transition: all" then when page refreshes the element */
-  /* will animate, so better to be specific */
-  /* transition: all 0.8s; */
-  transition: transform 800ms;
-  position: relative;
-}
+.btn {
+  &, // For a <button> element
+  &:link, // link and visited are only for <a> element
+  &:visited {
+    // This styling is for <a> and <button> elements
+    font-size: $font-size-default;
+    /* border: none; */
+    cursor: pointer;
+    padding: 1rem 4rem;
+    display: inline-block;
+    border-radius: 20rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    /* When we use "transition: all" then when page refreshes the element */
+    /* will animate, so better to be specific */
+    /* transition: all 0.8s; */
+    transition: transform 800ms;
+    position: relative;
 
-.btn:hover {
-  transform: translateY(-0.4rem);
-  box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
-}
+    // Special styling for case we use this style
+    // on a <button> element
+    border: none;
+    cursor: pointer;
+  }
 
-.btn:active {
-  transform: translateY(-0.1rem);
-  box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
-}
+  &:hover {
+    transform: translateY(-0.4rem);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+  }
 
+  &:active,
+  &:focus {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+}
 .btn--white {
   // border: 1px $color-black solid;
   background-color: $color-white;
