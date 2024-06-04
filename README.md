@@ -12,3 +12,7 @@ step-5 : Features section : https://github.com/Mason2060/udm-jonas-natours/tree/
 step-6 : Tours section : https://github.com/Mason2060/udm-jonas-natours/tree/step-6-page-tours
 
 step-7 : Page Stories : https://github.com/Mason2060/udm-jonas-natours/tree/step-7-page-stories
+
+step-8 : Page Booking : https://github.com/Mason2060/udm-jonas-natours/tree/step-8-page-booking
+
+step-9 : Page Booking : https://github.com/Mason2060/udm-jonas-natours/tree/step-9-page-footer
